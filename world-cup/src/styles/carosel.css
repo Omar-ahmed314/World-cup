@@ -1,6 +1,6 @@
 .caroselContainer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 1%;
     height: 300px;
     /* background-color: aqua; */

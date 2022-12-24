@@ -3,6 +3,7 @@ import Toolbar from "./Toolbar";
 import MCImages from "./mcImages";
 import Carosel from "./carosel";
 import Middle from './middle';
+import Matches from './matches';
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <MCImages/>
       <Carosel/>
       <Middle/>
+      <Matches/>
     </div>
   );
 }

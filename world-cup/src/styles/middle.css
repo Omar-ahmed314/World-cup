@@ -1,0 +1,55 @@
+.middleContainer {
+    margin: 0 10% 0 10%;
+    /* background-color: aqua; */
+    height: 700px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.middleContainer div {
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.middleContainer p {
+    margin: 5% 0 0 0;
+    font-size: 98px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.middleContainer div button {
+    width: fit-content;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    width: 25%;
+    height: 10%;
+    border-radius: 30px;
+    transform: translate(50%, -100%);
+    cursor: pointer;
+    outline: 3px solid black;
+    transition: all 200ms ease-in-out;
+}
+
+.middleContainer div button:hover {
+    color: black;
+    background-color: transparent;
+}
+
+.hakimiImage {
+    height: 100%;
+    filter: grayscale(100%);
+    mix-blend-mode: color-burn;
+    transition: all 200ms ease-in-out;
+}
+
+.hakimiImage:hover {
+    filter: grayscale(0);
+    mix-blend-mode: normal;
+}
+

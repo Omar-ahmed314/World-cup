@@ -1,0 +1,35 @@
+.imagesContainer {
+    /* background-color: aqua; */
+    padding-top: 5%;
+    /* position: relative; */
+    height: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+.imagesContainer img  {
+    /* filter: saturate(0); */
+    filter: grayscale(100%);
+    mix-blend-mode: color-burn;
+    transition: all 200ms ease-in-out;
+}
+
+.imagesContainer img:hover  {
+    /* filter: saturate(0); */
+    filter: grayscale(0);
+    mix-blend-mode: normal;
+}
+
+.messiImage .ronaldoImage {
+    height: 100%;
+}
+
+.messiImage {
+    /* background-color: aqua; */
+    transform: translate(10%, 0);
+}
+
+.ronaldoImage {
+    /* background-color: antiquewhite; */
+    transform: translate(-10%, 0);
+}

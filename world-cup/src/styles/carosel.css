@@ -1,0 +1,15 @@
+.caroselContainer {
+    margin: 0 10% 0 10%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1%;
+    height: 300px;
+    /* background-color: aqua; */
+    transform: translate(0, -10%);
+}
+
+.caroselContainer div {
+    width: 20%;
+    border-radius: 5%;
+    background-color: rgb(217, 217, 217);
+}

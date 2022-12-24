@@ -1,0 +1,33 @@
+.toolbarcontainer{
+    margin: 0 10% 0 10%;
+    padding: 1%;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoImage {
+    /* background-color: azure; */
+    height: 100px;
+}
+
+.toolbarTabs{
+    width: 20%;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.toolbarTabs li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 5%;
+    transition: all 200ms ease-in-out;
+}
+
+.toolbarTabs li a:hover {
+    color: rgb(122, 5, 69);
+}
+

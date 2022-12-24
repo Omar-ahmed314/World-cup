@@ -1,4 +1,5 @@
 import hakimiImage from '../images/hakimi.png'
+import effect from '../images/doteffect.png'
 import '../styles/middle.css'
 
 function Middle() {
@@ -9,6 +10,7 @@ function Middle() {
             <button>Official Products</button>
         </div>
         <img src={hakimiImage} alt="hakimi" className="hakimiImage"/>
+        <img src={effect} alt="doteffect" className="doteffect"/>
     </div>
   );
 }

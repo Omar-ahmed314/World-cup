@@ -1,4 +1,5 @@
 import '../styles/matches.css'
+import worldCup from '../images/world cup.png'
 
 function Matches() {
   return (
@@ -9,6 +10,7 @@ function Matches() {
             <div className="matchContainer">match</div>
             <div className="matchContainer">match</div>
         </div>
+        <img src={worldCup} alt="worldcup"/>
     </div>
   );
 }

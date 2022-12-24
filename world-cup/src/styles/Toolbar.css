@@ -5,6 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logoImage {
@@ -29,5 +30,14 @@
 
 .toolbarTabs li a:hover {
     color: rgb(122, 5, 69);
+}
+
+/*=======================================================*/
+.effect {
+    position: absolute;
+    top: 0;
+    left: -25%;
+    transform: rotate(-90deg);
+    opacity: 0.1;
 }
 

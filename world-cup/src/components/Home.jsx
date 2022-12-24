@@ -10,10 +10,12 @@ function Home() {
   return (
     <div>
       <Toolbar/>
-      <MCImages/>
-      <Carosel/>
-      <Middle/>
-      <Matches/>
+      <div className='body'>
+        <MCImages/>
+        <Carosel/>
+        <Middle/>
+        <Matches/>
+      </div>
       <Footer/>
     </div>
   );

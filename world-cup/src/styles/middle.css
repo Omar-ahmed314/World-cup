@@ -1,9 +1,9 @@
 .middleContainer {
-    margin: 0 10% 0 10%;
     /* background-color: aqua; */
     height: 700px;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .middleContainer div {
@@ -46,6 +46,7 @@
     filter: grayscale(100%);
     mix-blend-mode: color-burn;
     transition: all 200ms ease-in-out;
+    z-index: 1;
 }
 
 .hakimiImage:hover {
@@ -53,3 +54,13 @@
     mix-blend-mode: normal;
 }
 
+/*================================================*/
+.doteffect {
+    position: absolute;
+    width: 60%;
+    z-index: 0;
+    bottom: -40%;
+    right: -40%;
+    filter: grayscale(100%);
+    opacity: 0.1;
+}

@@ -1,7 +1,8 @@
 /* Matches Slot*/
 .matchesSlot {
     min-height: 700px;
-    margin: 5% 10% 0 10%;
+    margin: 5% 0 0 0;
+    position: relative;
 }
 
 .matchesSlot .slotHeader {
@@ -34,6 +35,17 @@
     right: 120%;
 }
 
+.matchesSlot img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80%;
+    z-index: 0;
+    filter: grayscale(100%);
+    opacity: 0.2;
+    mix-blend-mode: color-burn;
+}
+
 /* ===================== Matches ===================== */
 .matchesContainer {
     display: flex;
@@ -47,4 +59,5 @@
     height: 150px;
     width: 60%;
     border-radius: 20px;
+    z-index: 1;
 }

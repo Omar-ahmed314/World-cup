@@ -7,3 +7,8 @@
 body {
     background-color: rgba(226, 226, 226, 1);
 }
+
+.body {
+    padding: 0 10%;
+    overflow: hidden;
+}

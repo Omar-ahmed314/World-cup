@@ -4,6 +4,7 @@ import MCImages from "./mcImages";
 import Carosel from "./carosel";
 import Middle from './middle';
 import Matches from './matches';
+import Footer from './footer';
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <Carosel/>
       <Middle/>
       <Matches/>
+      <Footer/>
     </div>
   );
 }

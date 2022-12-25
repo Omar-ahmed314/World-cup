@@ -1,7 +1,7 @@
-import '../styles/footer.css'
-import adidas from '../images/adidas.png'
-import visa from '../images/visa.png'
-import cocacola from '../images/cocacola.png'
+import '../../styles/Home/footer.css'
+import adidas from '../../images/adidas.png'
+import visa from '../../images/visa.png'
+import cocacola from '../../images/cocacola.png'
 
 function Footer() {
   return (

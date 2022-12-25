@@ -1,6 +1,6 @@
-import image from '../images/logo.png'
-import effect from '../images/texture.png'
-import '../styles/Toolbar.css'
+import image from '../../images/logo.png'
+import effect from '../../images/texture.png'
+import '../../styles/Home/Toolbar.css'
 
 function Toolbar() {
   return (

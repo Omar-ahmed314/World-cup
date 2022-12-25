@@ -1,6 +1,6 @@
-import hakimiImage from '../images/hakimi.png'
-import effect from '../images/doteffect.png'
-import '../styles/middle.css'
+import hakimiImage from '../../images/hakimi.png'
+import effect from '../../images/doteffect.png'
+import '../../styles/Home/middle.css'
 
 function Middle() {
   return (

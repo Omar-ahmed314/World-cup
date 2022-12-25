@@ -1,5 +1,5 @@
-import '../styles/matches.css'
-import worldCup from '../images/world cup.png'
+import '../../styles/Home/matches.css'
+import worldCup from '../../images/world cup.png'
 
 function Matches() {
   return (

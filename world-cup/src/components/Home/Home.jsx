@@ -1,4 +1,4 @@
-import '../styles/Home.css'
+import '../../styles/Home/Home.css'
 import Toolbar from "./Toolbar";
 import MCImages from "./mcImages";
 import Carosel from "./carosel";

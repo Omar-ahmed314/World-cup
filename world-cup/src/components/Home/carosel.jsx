@@ -1,7 +1,7 @@
-import '../styles/carosel.css'
-import c1 from '../images/c1.jpg'
-import c2 from '../images/c2.jpeg'
-import c3 from '../images/c3.jpg'
+import '../../styles/Home/carosel.css'
+import c1 from '../../images/c1.jpg'
+import c2 from '../../images/c2.jpeg'
+import c3 from '../../images/c3.jpg'
 
 function Carosel() {
   return (

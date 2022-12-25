@@ -1,6 +1,6 @@
-import messiImage from '../images/messi2.png'
-import ronaldoImage from '../images/ronaldo.png'
-import '../styles/mcImages.css'
+import messiImage from '../../images/messi2.png'
+import ronaldoImage from '../../images/ronaldo.png'
+import '../../styles/Home/mcImages.css'
 
 function MCImages() {
   return (

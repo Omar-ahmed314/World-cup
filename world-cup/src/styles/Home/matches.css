@@ -53,7 +53,7 @@
     align-items: center;
 }
 
-.matchContainer {
+.matchContainer{
     background-image: linear-gradient(rgba(240, 240, 240, 1), rgba(216, 216, 216, 1));
     margin: 2%;
     height: 150px;

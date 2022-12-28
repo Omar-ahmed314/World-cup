@@ -1,14 +1,14 @@
 import '../../styles/Home/Home.css'
-import Toolbar from "./Toolbar";
 import MCImages from "./mcImages";
 import Carosel from "./carosel";
 import Middle from './middle';
 import Matches from './matches';
 import Footer from './footer';
+import Toolbar from '../Home/Toolbar';
 
 function Home() {
   return (
-    <div>
+    <div className='home_page'>
       <Toolbar/>
       <div className='body'>
         <MCImages/>

@@ -4,11 +4,17 @@ import './index.css';
 import Home from './components/Home/Home';
 import reportWebVitals from './reportWebVitals';
 import Match from './components/Match/Match';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Match />
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={<Home/>}/>
+        <Route path='/Match' element={<Match/>}/>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

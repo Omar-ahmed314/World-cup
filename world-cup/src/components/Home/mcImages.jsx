@@ -4,9 +4,9 @@ import '../../styles/Home/mcImages.css'
 
 function MCImages() {
   return (
-    <div className="imagesContainer">
-        <img src={messiImage} alt="messi" className="messiImage"/>
-        <img src={ronaldoImage} alt="ronaldo" className="ronaldoImage"/>
+    <div className="images_container">
+        <img src={messiImage} alt="messi" className="messi_image"/>
+        <img src={ronaldoImage} alt="ronaldo" className="ronaldo_image"/>
     </div>
   );
 }

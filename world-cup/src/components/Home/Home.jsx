@@ -10,7 +10,7 @@ function Home() {
   return (
     <div className='home_page'>
       <Toolbar/>
-      <div className='body'>
+      <div className='home_page_body'>
         <MCImages/>
         <Carosel/>
         <Middle/>

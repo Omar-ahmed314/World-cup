@@ -1,4 +1,4 @@
-.imagesContainer {
+.images_container {
     /* background-color: aqua; */
     padding-top: 5%;
     /* position: relative; */
@@ -7,29 +7,29 @@
     justify-content: center;
 }
 
-.imagesContainer img  {
+.images_container img  {
     /* filter: saturate(0); */
     filter: grayscale(100%);
     mix-blend-mode: color-burn;
     transition: all 200ms ease-in-out;
 }
 
-.imagesContainer img:hover  {
+.images_container img:hover  {
     /* filter: saturate(0); */
     filter: grayscale(0);
     mix-blend-mode: normal;
 }
 
-.messiImage .ronaldoImage {
+.messi_image .ronaldo_image {
     height: 100%;
 }
 
-.messiImage {
+.messi_image {
     /* background-color: aqua; */
     transform: translate(10%, 0);
 }
 
-.ronaldoImage {
+.ronaldo_image {
     /* background-color: antiquewhite; */
     transform: translate(-10%, 0);
 }

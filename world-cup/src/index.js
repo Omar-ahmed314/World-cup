@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import BuyTicket from './components/TicketReservation/BuyTicket';
 import './index.css';
 import Home from './components/Home/Home';
 import reportWebVitals from './reportWebVitals';
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route exact path='/' element={<Home/>}/>
         <Route path='/Match' element={<Match/>}/>
+        <Route path='/buy_ticket' element={<BuyTicket/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

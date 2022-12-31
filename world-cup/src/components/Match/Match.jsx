@@ -5,6 +5,7 @@ import refreeIcon from '../../images/whistle.png';
 import flagIcon from '../../images/flag.png';
 import Toolbar from '../Home/Toolbar';
 import { useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
 const initialMatch = {
   firstTeam: '',
@@ -70,7 +71,7 @@ function Match() {
           </div>
         </div>
         <div className='reservation_container'>
-          <button>buy ticket</button>
+          <Link to='/buy_ticket'>buy ticket</Link>
         </div>
       </div>
     </div>

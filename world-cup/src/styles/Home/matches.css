@@ -53,11 +53,32 @@
     align-items: center;
 }
 
+.matchesContainer a {
+    text-decoration: none;
+    color: black;
+}
+
 .matchContainer{
     background-image: linear-gradient(rgba(240, 240, 240, 1), rgba(216, 216, 216, 1));
+    border: 1px solid black;
     margin: 2%;
     height: 150px;
     width: 60%;
     border-radius: 20px;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.matchContainer .match_teams {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.matchContainer .match_teams span {
+    font-size: 0.8em;
+    font-weight: normal;
 }

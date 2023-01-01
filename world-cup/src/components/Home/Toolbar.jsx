@@ -10,6 +10,7 @@ function Toolbar() {
       <img src={image} alt="logo" className="logo_image"/>
       <ul className="toolbar_tabs">
           <li><Link to='/'>Home</Link></li>
+          <li><Link to='/reserved_matches'>Reserved Matches</Link></li>
           <li><Link to='/'>Login</Link></li>
           <li><Link to='/'>Signup</Link></li>
       </ul>

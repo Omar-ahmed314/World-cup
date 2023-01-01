@@ -57,11 +57,20 @@
 
 .seats_container table tr td > input{
     /* border: 1px solid black; */
-    /* background-color: blue; */
+    /* background-color: #0ad0df; */
     /* display: flex; */
     display: none;
 }
 
-.seats_container table tr td > input:checked + label img{
+.seats_container table tr td > .valid_seat + label img{
+    filter: invert(72%) sepia(43%) saturate(5958%) hue-rotate(141deg) brightness(106%) contrast(92%);
+}
+
+.seats_container table tr td > .valid_seat:checked + label img{
     filter: invert(12%) sepia(93%) saturate(5970%) hue-rotate(10deg) brightness(85%) contrast(122%);
+}
+
+/* seat disabled */
+.invalid_seat{
+    
 }

@@ -1,0 +1,52 @@
+.reserved_matches_page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.reserved_matches_container {
+    /* background-color: azure; */
+    padding: 0 20%;
+    height: 100%;
+    width: 100%;
+}
+
+.reserved_match {
+    background-image: linear-gradient(rgba(240, 240, 240, 1), rgba(216, 216, 216, 1));
+    display: flex;
+    border-radius: 5px;
+    width: 100%;
+    height: 20%;
+    padding: 1%;
+    margin: 1%;
+    border: 1px solid black;
+}
+
+.reserved_match .match_info {
+    /* background-color: aqua; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reserved_match .cansellation_btn {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reserved_match .cansellation_btn button {
+    padding: 3%;
+    width: 30%;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(85 0 101);
+    color: white;
+    font-size: 0.8em;
+    font-weight: 500;
+    margin: 1%;
+}
+

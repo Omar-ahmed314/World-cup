@@ -6,6 +6,7 @@ import Home from './components/Home/Home';
 import reportWebVitals from './reportWebVitals';
 import Match from './components/Match/Match';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ReservedMatches from './components/Reserved Matches/ReservedMatches';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,8 +14,9 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route exact path='/' element={<Home/>}/>
-        <Route path='/Match' element={<Match/>}/>
-        <Route path='/buy_ticket' element={<BuyTicket/>}/>
+        <Route path='/match/:id' element={<Match/>}/>
+        <Route path='/buy_ticket/:id' element={<BuyTicket/>}/>
+        <Route path='/reserved_matches' element={<ReservedMatches/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

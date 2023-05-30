@@ -1,0 +1,143 @@
+.toolbar_container{
+    /* box-sizing: content-box; */
+    margin: 0 10%;
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 15%;
+}
+
+.logo_image {
+    height: 100%;
+    z-index: 1;
+}
+
+.toolbar_tabs{
+    padding: 0;
+    /* background-color: antiquewhite; */
+    width: 100%;
+    list-style: none;
+    text-align: right;
+    /* display: inline-block; */
+    /* justify-content: space-between; */
+}
+
+.toolbar_tabs li, .toolbar_tabs li a {
+    color: black;
+    font-weight: bold;
+    /* font-size: 1em; */
+}
+
+.toolbar_tabs li {
+    display: inline-flex;
+    /* background-color: aqua; */
+    margin: 2%;
+}
+
+.toolbar_tabs li a {
+    text-decoration: none;
+    transition: all 200ms ease-in-out;
+}
+
+.toolbar_tabs li a:hover {
+    color: rgb(122, 5, 69);
+}
+
+/*=======================================================*/
+.effect {
+    position: absolute;
+    top: -5%;
+    left: -25%;
+    transform: rotate(-90deg);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/*===========drop down list============*/
+.user-box-wrap {
+    /* background-color:rgb(122, 5, 69); */
+    font-size: small;
+    position: relative;
+}
+
+.user-box-wrap .user-icon {
+    cursor: pointer;
+}
+
+
+.user-box-wrap .user-drop-down-list {
+    box-shadow: 0px 0px 10px #ddd;
+    padding: 30%;
+    text-align: left;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    background-color: white;
+    margin-top: 10%;
+    font-size: 100%;
+    width: 250px;
+    z-index: 100;
+    transition: all 100ms ease-in-out;
+}
+
+
+.user-box-wrap .user-drop-down-list span {
+    padding: 2%;
+    display: block;
+    border-bottom: 1px solid black;
+}
+
+.user-box-wrap .user-drop-down-list ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.user-box-wrap .user-drop-down-list ul li {
+    border-radius: 5px;
+    display: flex;
+    padding: 5%;
+    transition: all 100ms ease-in-out;
+}
+
+.user-box-wrap .user-drop-down-list ul li .icon {
+    margin-right: 3%;
+}
+
+
+.user-box-wrap .user-drop-down-list ul li:hover {
+    background-color: #ddd;
+}
+
+.user-box-wrap .user-drop-down-list button {
+    border-radius: 5px;
+    color: aliceblue;
+    background-color: rgb(183, 86, 86);
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 3%;
+    transition: all 100ms ease-in-out;
+    /* background-color: ; */
+    /* height: 20%; */
+}
+
+.user-box-wrap .user-drop-down-list button:hover {
+    background-color: rgb(159, 59, 59);
+}
+
+.user-box-wrap .user-drop-down-list button:active {
+    outline: 3px solid rgb(104, 26, 26);
+}
+
+/*this class must be keept down so as not to be overriden*/
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}

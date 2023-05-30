@@ -1,0 +1,106 @@
+.signin_page {
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif, Verdana, Geneva, Tahoma ;
+}
+
+.signin_page .signin_container {
+  width: 100%;
+  height: 100%;
+  /* background-color: antiquewhite; */
+  display: flex;
+}
+
+.signin_page .signin_container .caroselContainer{
+  flex-grow: 2;
+}
+
+.signin_page .signin_container .authFormContainer {
+  height: 100%;
+  /* width: 100%; */
+  overflow-y: scroll;
+  background-color: azure;
+  flex-grow: 1;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+}
+
+.signin_page .signin_container .authFormContainer .errorMessage {
+  background-color: rgb(216, 166, 166);
+  border-radius: 5px;
+  border: solid 2px red;
+  padding: 1%;
+  margin-bottom: 2%;
+}
+
+.signin_page .signin_container .authFormContainer .authForm {
+ display: flex;
+ flex-direction: column;
+ /* background-color: antiquewhite; */
+ align-items: start;
+ /* width: 100%; */
+}
+
+/* .signin_page .signin_container .authFormContainer .inputErrorMsg FontAwesomeIcon {
+  margin: 1%;
+} */
+
+.signin_page .signin_container .authFormContainer h1{
+  font-weight: bolder;
+  margin: 5% 0;
+}
+
+.signin_page .signin_container .authFormContainer .authForm > div{
+  /* background-color: aqua; */
+  width: 100%;
+  /* text-align: center; */
+  display: flex;
+  /* min-height: 100vh; */
+  /* align-items: center; */
+  /* justify-content: start; */
+  flex-direction: column;
+  margin: 1% 0;
+}
+
+.invisible {
+  display: none;
+}
+
+.signin_page .signin_container .authFormContainer label{
+  font-weight: bolder;
+  font-size: smaller;
+  color: gray;
+  /* width: 100%; */
+  /* background-color: brown; */
+}
+
+.signin_page .signin_container .authFormContainer input, select{
+  /* margin: 0.5rem 0; */
+  /* width: 100%; */
+  margin: 0;
+  text-align: left;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 2px black;
+  padding: 1%;
+}
+
+/* .signin_page .signin_container .authFormContainer select{
+  margin: 0.5rem 0;
+  text-align: center;
+} */
+
+.signin_page .signin_container .authFormContainer button{
+  border: none;
+  font-size: smaller;
+  font-weight: bolder;
+  background-color: rgb(113, 27, 89);
+  padding: 2% 4%;
+  border-radius: 30px;
+  color: aliceblue;
+  width: fit-content;
+  margin: 1% 0;
+}

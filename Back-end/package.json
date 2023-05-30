@@ -1,0 +1,51 @@
+{
+  "name": "worldcup_backend",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "start:prod": "node dist/server",
+    "start:dev": "nodemon src/server.ts",
+    "jasmine": "npx jasmine",
+    "db-migrate:up": "db-migrate up",
+    "db-migrate:down": "db-migrate reset",
+    "watch": "npx tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
+    "test": "set ENV=test&& npm-run-all build db-migrate:up jasmine db-migrate:down -c",
+    "build": "npx tsc"
+  },
+  "author": "Udacity",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cookie-parser": "^1.4.3",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^16.0.2",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "npm-run-all": "^4.1.5",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.9",
+    "@types/jasmine": "^3.6.3",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/node": "^18.7.23",
+    "@types/pg": "^7.14.7",
+    "@types/supertest": "^2.0.12",
+    "jasmine": "^3.99.0",
+    "jasmine-spec-reporter": "^6.0.0",
+    "jasmine-ts": "^0.3.0",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.2.4",
+    "ts-node": "^10.8.1",
+    "tsc-watch": "^4.2.9",
+    "typescript": "^4.8.4"
+  }
+}

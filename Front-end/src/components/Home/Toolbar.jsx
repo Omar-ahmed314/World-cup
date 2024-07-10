@@ -8,7 +8,7 @@ import { faCircleUser, faUser, faGear, faFileContract } from '@fortawesome/free-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useLogout from '../../Hooks/useLogout';
 
-function Toolbar() {
+const Toolbar = () => {
   const {auth} = useAuth();
 
   const [visible, setVisibility] = useState(false);
@@ -23,11 +23,15 @@ function Toolbar() {
   }
 
   const signout = async () => {
-    console.log(auth)
-    await logout();
-    console.log(auth)
-    setSignedIn(false);
-    console.log(auth)
+
+    try {
+      await logout();
+      window.location.reload();
+      
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 
   return (
@@ -36,10 +40,11 @@ function Toolbar() {
       <img src={image} alt="logo" className="logo_image"/>
       <ul className="toolbar_tabs">
           <li><Link to='/'>Home</Link></li>
-          <li><Link to='/reserved_matches'>Reserved Matches</Link></li>
+          
           {
-            auth ? (
+            isSignedIn ? (
               <Fragment>
+                <li><Link to='/reserved_matches'>Reserved Matches</Link></li>
                 <li>
                   <div 
                   className='user-box-wrap' 
@@ -61,6 +66,7 @@ function Toolbar() {
               </Fragment>
             ) : (
               <Fragment>
+                
                 <li><Link to='/login'>Login</Link></li>
                 <li><Link to='/signup'>Signup</Link></li>
               </Fragment>

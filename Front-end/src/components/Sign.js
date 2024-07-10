@@ -2,14 +2,14 @@ import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { decodeToken } from 'react-jwt'
 import useAuth from '../Hooks/useAuth'
-import axios from '../axios';
+import useAxiosPrivate from '../Hooks/useAxiosPrivate.js';
 import './signin.css'
-import useRefreshToken from '../Hooks/useRefreshToken';
 
 const Sign = () => { 
     const userNameRef = useRef();
 
     const {auth, setAuth} = useAuth();
+    const axiosPrivate = useAxiosPrivate();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -30,13 +30,8 @@ const Sign = () => {
             pass: password
         }
         try {
-            console.log('accessToken');
-            const response = await axios.post('/login', 
-                JSON.stringify(signinData),
-                {
-                    headers: {'Content-Type' : 'application/json'},
-                    withCredentials: true
-                });
+            const response = await axiosPrivate.post('/login', 
+                JSON.stringify(signinData));
 
             // get the access token from the response header
             const accessToken = response?.data['accessToken'];

@@ -11,13 +11,15 @@ import Sign from './components/Sign';
 import Register from './components/Register';
 import { AuthProvider } from './Hooks/AuthProvider';
 import AutoReload from './components/AutoReload';
+import Dashboard from './components/Admin/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
     <AuthProvider>
-      <Routes>
+      <Dashboard/>
+      {/* <Routes>
         <Route element={<AutoReload/>}>
           <Route exact path='/' element={<Home/>}/>
           <Route path='/match/:id' element={<Match/>}/>
@@ -26,7 +28,7 @@ root.render(
           <Route path='/login' element={<Sign/>}/>
           <Route path='/signup' element={<Register/>}/>
         </Route>
-      </Routes>
+      </Routes> */}
     </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>

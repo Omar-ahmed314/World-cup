@@ -33,6 +33,16 @@
   border: solid 2px red;
   padding: 1%;
   margin-bottom: 2%;
+  font-weight: bold;
+}
+
+.signin_page .signin_container .authFormContainer .warningMessage {
+  background-color: rgb(243, 247, 122);
+  border-radius: 5px;
+  border: solid 2px rgb(243, 134, 9);
+  padding: 1%;
+  margin-bottom: 2%;
+  font-weight: bold;
 }
 
 .signin_page .signin_container .authFormContainer .authForm {

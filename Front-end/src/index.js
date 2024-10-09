@@ -14,21 +14,22 @@ import AutoReload from './components/AutoReload';
 import Dashboard from './components/Admin/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
     <AuthProvider>
-      <Dashboard/>
-      {/* <Routes>
-        <Route element={<AutoReload/>}>
-          <Route exact path='/' element={<Home/>}/>
-          <Route path='/match/:id' element={<Match/>}/>
-          <Route path='/buy_ticket/:id' element={<BuyTicket/>}/>
-          <Route path='/reserved_matches' element={<ReservedMatches/>}/>
-          <Route path='/login' element={<Sign/>}/>
-          <Route path='/signup' element={<Register/>}/>
-        </Route>
-      </Routes> */}
+        <Routes>
+          <Route element={<AutoReload/>}>
+            <Route exact path='/' element={<Home/>}/>
+            <Route path='/match/:id' element={<Match/>}/>
+            <Route path='/buy_ticket/:id' element={<BuyTicket/>}/>
+            <Route path='/reserved_matches' element={<ReservedMatches/>}/>
+            <Route path='/login' element={<Sign/>}/>
+            <Route path='/signup' element={<Register/>}/>
+            <Route path='/dashboard' element={<Dashboard/>}/>
+          </Route>
+        </Routes>
     </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>

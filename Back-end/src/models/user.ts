@@ -84,7 +84,7 @@ export default class User {
     async delete(userID: number): Promise<user> {
         try {
             const connection = await Client.connect()
-            const sql = 'DELETE FROM "USERS" where "userID" = ($1)'
+            const sql = 'DELETE FROM "USERS" where "userID" = ($1) returning *'
             const result = await connection.query(sql, [userID])
             return result.rows[0]
         }
@@ -106,11 +106,11 @@ export default class User {
         }
     }
 
-    async authorize(userID: number): Promise<user> {
+    async userRoleApprove(userID: number): Promise<user> {
         try {
             const connection = await Client.connect()
-            const sql = 'UPDATE "USERS" SET "roleApproved"=true WHERE "userID" = ($1) RETURNING *'
-            const result = await connection.query(sql)
+            const sql = 'UPDATE "USERS" SET "roleApproved"=TRUE WHERE "userID" = ($1) RETURNING *'
+            const result = await connection.query(sql, [userID])
             connection.release()
             return result.rows[0]
         }

@@ -1,6 +1,6 @@
 import { useState, useEffect, Fragment } from 'react';
-import CustomizedTables from './CustomizedTable';
-import CustomizedMenus from './Menu';
+import {MembersTable, WaitingTable} from './CustomizedTable';
+import BasicTabs from './Tabs';
 import Toolbar from '../Home/Toolbar';
 import { Container } from '@mui/material';
 import '../../styles/Admin/Dashboard.css'
@@ -10,11 +10,11 @@ const Dashboard = () => {
         <Toolbar/>
         <Container maxWidth="lg">
             <div className="tables-con">
-                <div className="table-header">
-                    <h3>Memebers dashboard</h3>
-                    <CustomizedMenus />
-                </div>
-                <CustomizedTables/>
+                <h3>Memebers dashboard</h3>
+                <BasicTabs>
+                    <MembersTable/>
+                    <WaitingTable/>
+                </BasicTabs>
             </div>
         </Container>
     </Fragment>

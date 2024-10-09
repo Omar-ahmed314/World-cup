@@ -5,6 +5,13 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 dotenv.config();
 
+type accessToken = {
+    userID: string,
+    userName: string,
+    role: string,
+    roleApproved: boolean
+};
+
 const userEncryption = (req: Request, res: Response, next: NextFunction) => {
     console.log(req.body.pass);
     const hashedPassword = bcrypt.hashSync(
@@ -48,8 +55,21 @@ const tokenVerfication = (req: Request, res: Response, next: NextFunction) => {
     }
 }
 
+const adminAuthorization = (req: Request, res: Response, next: NextFunction) => {
+    const token: string = req.headers.authorization?.split(' ')[1] as string;
+    const role: string = (jwt.decode(token) as accessToken).role;
+    if(role === 'admin')
+        next()
+    else {
+        res.status(404).json({
+            msg: 'Unauthorized User'
+        })
+    }
+}
+
 export {
     userEncryption,
     userValidation,
-    tokenVerfication
+    tokenVerfication,
+    adminAuthorization
 };

@@ -1,5 +1,5 @@
 import User, { user } from "../models/user";
-import { tokenVerfication, userEncryption, userValidation } from './middleware/userHandlerMid';
+import { adminAuthorization, tokenVerfication, userEncryption, userValidation } from './middleware/userHandlerMid';
 import { Response, Request, Application } from 'express';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
@@ -8,23 +8,6 @@ dotenv.config();
 
 const userModel = new User();
 
-
-/*
-export type user = {
-    userID?: number,
-    userName: string,
-    firstName: string,
-    lastName: string,
-    gender: "male" | "female",
-    nationality?: string,
-    birthDate: Date,
-    pass: string,
-    email: string,
-    userRole: "manager" | "customer" | "admin",
-    roleApproved: boolean,
-};
-
-*/
 // endpoints
 const index = async (req: Request, res: Response) => {
     try {
@@ -95,19 +78,36 @@ const edit = async (req: Request, res: Response) => {
     }
 }
 
+const userApprove = async (req: Request, res: Response) => {
+    try {
+        const userID = req.body['userID'];
+        const data = await userModel.userRoleApprove(userID);
+        res.status(201);
+        res.json(data);
+    } catch (error) {
+        res.status(400);
+        res.send(error);
+    }
+}
+
 const login = async (req: Request, res: Response) => {
     try {
         const data = await userModel.login(req.body.userName);
         const isCorrect = bcrypt.compareSync(req.body.pass + process.env.SECRET_KEY, data.pass);
-        if (!isCorrect)
-        {   
-            res.status(401).json({
-                msg: 'Incorrect data'
-            });
+        if (!isCorrect){
+            throw "Incorrect Input"
         }
+
+        // if user is still nolonger approved
+        if(!data.roleApproved) {
+            throw "Pending Approval"
+        }
+
         const accessToken = jwt.sign({
             userID: data.userID,
             userName: data.userName,
+            role: data.userRole,
+            roleApproved: data.roleApproved
         }, process.env.JSON_SECRET_KEY as unknown as string,
         {
             expiresIn: '1h'
@@ -122,22 +122,35 @@ const login = async (req: Request, res: Response) => {
             'worldcup-jwt', 
             refreshToken, 
             {
-                httpOnly: true, 
-                maxAge: 7 * 24 * 60 * 60 * 1000, // for 7 days
-            });
+            httpOnly: true, 
+            maxAge: 7 * 24 * 60 * 60 * 1000, // for 7 days
+        });
 
         res.status(200);
         res.json({
             accessToken,
-            msg: 'Successfully signin'
+            msg: 'Successfully login'
         });
+        
 
     } catch (error) {
-        console.log(error);
-        res.status(400);
-        res.json({
-            msg: 'Bad request'
-        });
+        switch(error) {
+            case "Incorrect Input":
+                res.status(401).json({
+                    msg: "Incorrect username or password"
+                });
+                break;
+            case "Pending Approval":
+                res.status(202).json({
+                    status: "pending",
+                    message: "Pending Approval from admin"
+                });
+                break;
+            default:
+                res.status(400).json({
+                    msg: 'Bad request'
+                })
+        }
     }
 }
 
@@ -159,7 +172,7 @@ const _delete = async (req: Request, res: Response) => {
 }
 
 const refresh = (req: Request, res: Response) => {
-    const refreshToken = req.cookies['worldcup-jwt'];
+    const refreshToken: string = req.cookies['worldcup-jwt'];
     const accessTokenPayload = jwt.decode(refreshToken as string);
 
     try {
@@ -183,12 +196,13 @@ const refresh = (req: Request, res: Response) => {
 };
 
 const userRoutes = (app: Application) => {
-    app.get('/user', [tokenVerfication], index);
-    app.get('/user/:id', [tokenVerfication], show);
+    app.get('/user', [tokenVerfication, adminAuthorization], index);
+    app.get('/user/:id', [tokenVerfication, adminAuthorization], show);
     app.post('/user', [userEncryption], create);
     app.post('/login', [], login);
-    app.put('/user', [tokenVerfication, userEncryption], edit);
-    app.delete('/user/:id', [tokenVerfication], _delete);
+    app.put('/user', [tokenVerfication, adminAuthorization], edit);
+    app.put('/user-approve', [tokenVerfication, adminAuthorization], userApprove);
+    app.delete('/user/:id', [tokenVerfication, adminAuthorization], _delete);
     app.post('/user/refresh', refresh);
     app.post('/user/logout', logout);
 }

@@ -16,6 +16,7 @@ const Sign = () => {
     const from = location.state?.from?.pathname || '/';
 
     const [errMsg, setErrMsg] = useState('');
+    const [warningMsg, setWarningMsg] = useState('');
     const [userName, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
@@ -33,23 +34,33 @@ const Sign = () => {
             const response = await axiosPrivate.post('/login', 
                 JSON.stringify(signinData));
 
+            // The use is pending approval
+            if(response.status === 202 && response.data['status'] === "pending") {
+                setWarningMsg('Pending Approval');
+                return;
+            }
+
             // get the access token from the response header
             const accessToken = response?.data['accessToken'];
-            const { userID, userName } = decodeToken(accessToken);
+            const { userID, userName, role, roleApproved } = decodeToken(accessToken);
             // set the auth value to the userid and username
-            setAuth({userID, userName, accessToken});
+            setAuth({userID, userName, role, roleApproved, accessToken});
 
-            // navigate back to the source page
-            // TODO: replace the navigation back to the source page
-            navigate(from);
+            if(role === 'admin') {
+                navigate('/dashboard')
+            } else {
+                // navigate back to the source page
+                // TODO: replace the navigation back to the source page
+                navigate(from);
+            }
 
         } catch (err) {
             if(!err?.response)
-            setErrMsg('No Server Response');
+                setErrMsg('No Server Response');
             else if(err?.response.status === 401)
-            setErrMsg('Incorrect Username or Password');
+                setErrMsg('Incorrect Username or Password');
             else
-            setErrMsg('Registeration Error');
+                setErrMsg('Registeration Error');
         }
     }  
 
@@ -62,6 +73,9 @@ const Sign = () => {
                 <section className='authFormContainer'>
                     <section className={errMsg ? 'errorMessage' : 'invisible'}>
                         {errMsg}
+                    </section>
+                    <section className={warningMsg ? 'warningMessage' : 'invisible'}>
+                        {warningMsg}
                     </section>
                     <h1>Sign In</h1>
                     <form onSubmit={handleSubmit} className = 'authForm'>

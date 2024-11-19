@@ -1,22 +1,45 @@
 import { useState, useEffect, Fragment } from 'react';
-import {MembersTable, WaitingTable} from './CustomizedTable';
-import BasicTabs from './Tabs';
 import Toolbar from '../Home/Toolbar';
 import { Container } from '@mui/material';
+import AdminToolbar from '../Home/AdminToolbar';
+import UsersTab from './UsersTab';
+import MatchesTab from './MatchesTab';
+import StadiumsTab from './StadiumsTab';
 import '../../styles/Admin/Dashboard.css'
 
+
+const panelTabsLabels = ['Users', 'Matches', 'Stadiums']
+
 const Dashboard = () => {
+    const [panelOpen, setPanelOpen] = useState(true);
+    const [currentTab, setCurrentTab] = useState(0)
+
+    const togglePanel = () => {
+        setPanelOpen(!panelOpen);
+    }
+
     return <Fragment>
-        <Toolbar/>
-        <Container maxWidth="lg">
-            <div className="tables-con">
-                <h3>Memebers dashboard</h3>
-                <BasicTabs>
-                    <MembersTable/>
-                    <WaitingTable/>
-                </BasicTabs>
+        <div className='page-container'>
+            <div className={'panel '.concat(panelOpen ? '' : 'panel-close')}>
+                <h3>ADMIN</h3>
+                <ul>
+                    {
+                        panelTabsLabels.map((value, idx) => 
+                            <li 
+                        onClick={() => setCurrentTab(idx)}
+                        className={currentTab === idx ? 'checked' : ''}>{value}</li> 
+                        )
+                    }
+                </ul>
+
             </div>
-        </Container>
+            <div className='dash-container'>
+                <AdminToolbar togglePanel={togglePanel}/>
+                <UsersTab currentTab={currentTab}/>
+                <MatchesTab currentTab={currentTab}/>
+                <StadiumsTab currentTab={currentTab}/>
+            </div>
+        </div>
     </Fragment>
 }
 

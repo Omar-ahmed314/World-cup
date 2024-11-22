@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-    height: 15%;
+    height: 100px;
 }
 
 .logo_image {
@@ -16,24 +16,19 @@
 
 .toolbar_tabs{
     padding: 0;
-    /* background-color: antiquewhite; */
-    width: 100%;
     list-style: none;
-    text-align: right;
-    /* display: inline-block; */
-    /* justify-content: space-between; */
 }
 
 .toolbar_tabs li, .toolbar_tabs li a {
     color: black;
     font-weight: bold;
-    /* font-size: 1em; */
 }
 
 .toolbar_tabs li {
-    display: inline-flex;
+    display: inline;
     /* background-color: aqua; */
-    margin: 2%;
+    /* margin: 2%; */
+    padding: 10px;
 }
 
 .toolbar_tabs li a {

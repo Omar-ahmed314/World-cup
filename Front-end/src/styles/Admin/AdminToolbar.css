@@ -1,0 +1,16 @@
+.toolbar_container {
+    margin-left: 0;
+}
+
+.toolbar-tabs {
+
+}
+
+.toolbar_container .icon-logo {
+    /* background-color: aqua; */
+    height: 100%;
+}
+
+.menu-icon {
+    margin: 0 20px;
+}

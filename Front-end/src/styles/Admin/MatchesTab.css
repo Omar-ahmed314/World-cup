@@ -1,0 +1,79 @@
+/* matches tab css assets */ 
+* {
+    --world-cup-background-color : #b8445f;
+}
+
+.match-control-panel {
+    height: 200px;
+    /* background-color: aquamarine; */
+    background-image: url('../../images/cruyff.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* opacity: 0.5; */
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.match-control-panel h2 {
+    margin-left: 20px;
+    font-size: 3em;
+}
+
+.match-control-panel button {
+    padding: 5px 10px;
+    margin: 20px;
+    /* outline: none; */
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #8d253d;
+    background-image: linear-gradient(#b8445f, #8d253d);
+    color: rgb(227, 223, 223)
+}
+
+.match-control-panel button:hover {
+    background-image: none;
+    background-color: #8d253d;
+}
+
+.matches-container {
+    margin-top: 10px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.match-container {
+    color: white;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #ffffffbf;
+    cursor: pointer;
+    /* background-color: var(--world-cup-background-color); */
+    /* outline: 4px solid black; */
+    /* background-image: linear-gradient(60deg, #a0203e, rgb(178, 94, 108)); */
+}
+
+.match-container:hover {
+    outline: 1px solid rgb(141, 140, 140);
+}
+
+.match-container .inner-container {
+    margin: 10px 10px 0 10px;
+    height: 100%;
+    /* background-color: #b8445f; */
+}
+
+.match-container .inner-container .header {
+    color: gray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    padding: 5px;
+}
+
+.match-container .inner-container .header p {
+    margin: 0;
+}

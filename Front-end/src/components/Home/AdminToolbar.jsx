@@ -1,8 +1,8 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../images/logo.png'
-import effect from '../../images/texture.png'
 import useAuth from '../../Hooks/useAuth';
 import '../../styles/Home/Toolbar.css'
+import '../../styles/Admin/AdminToolbar.css'
 import { Fragment, useState } from 'react';
 import { faCircleUser, faUser, faGear, faFileContract } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -37,9 +37,10 @@ const AdminToolbar = ({togglePanel}) => {
 
   return (
     <div className="toolbar_container">
-        <FontAwesomeIcon icon={faBars} size='lg' style={{cursor: 'pointer'}} onClick={() => togglePanel()}/>
-      {/* <img src={effect} alt="effect" className='effect'/> */}
-      <img src={image} alt="logo" className="logo_image"/>
+      <div className='icon-logo'>
+        <FontAwesomeIcon className='menu-icon' icon={faBars} size='lg' style={{cursor: 'pointer'}} onClick={() => togglePanel()}/>
+        <img src={image} alt="logo" className="logo_image"/>
+      </div>
       <ul className="toolbar_tabs">
           <li><Link to='/'>Home</Link></li>
           

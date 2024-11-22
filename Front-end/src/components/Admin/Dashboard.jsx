@@ -35,9 +35,11 @@ const Dashboard = () => {
             </div>
             <div className='dash-container'>
                 <AdminToolbar togglePanel={togglePanel}/>
-                <UsersTab currentTab={currentTab}/>
-                <MatchesTab currentTab={currentTab}/>
-                <StadiumsTab currentTab={currentTab}/>
+                <div className="container tabs-container">
+                    <UsersTab currentTab={currentTab}/>
+                    <MatchesTab currentTab={currentTab}/>
+                    <StadiumsTab currentTab={currentTab}/>
+                </div>
             </div>
         </div>
     </Fragment>

@@ -1,0 +1,252 @@
+/* matches tab css assets */ 
+* {
+    --world-cup-background-color : #b8445f;
+    --match-card-color: #ffffffbf;
+    --match-form-color: #ffffff;
+}
+
+.match-control-panel {
+    height: 200px;
+    /* background-color: aquamarine; */
+    background-image: url('../../images/cruyff.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* opacity: 0.5; */
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.match-control-panel h2 {
+    margin-left: 20px;
+    font-size: 3em;
+}
+
+.match-control-panel button {
+    padding: 5px 10px;
+    margin: 20px;
+    /* outline: none; */
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #8d253d;
+    background-image: linear-gradient(#b8445f, #8d253d);
+    color: rgb(227, 223, 223)
+}
+
+.match-control-panel button:hover {
+    background-image: none;
+    background-color: #8d253d;
+}
+
+.stads-container {
+    margin-top: 10px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.stad-container {
+    color: gray;
+    /* width: 100%; */
+    height: 200px;
+    border-radius: 10px;
+    background-color: var(--match-card-color);
+    cursor: pointer;
+    /* background-color: var(--world-cup-background-color); */
+    /* outline: 4px solid black; */
+    /* background-image: linear-gradient(60deg, #a0203e, rgb(178, 94, 108)); */
+}
+
+.stad-container:hover {
+    outline: 1px solid rgb(141, 140, 140);
+}
+
+.stad-container .inner-container {
+    padding: 10px 10px 0 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: #b8445f; */
+}
+
+/* match card header */
+.stad-container .inner-container .header {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    /* flex-basis: 0; */
+    /* max-height: fit-content; */
+    /* background-color: #bb7f8d; */
+}
+
+.stad-container .inner-container .header .header-btns {
+    display: flex;
+}
+
+.stad-container .inner-container .header .header-btns > div {
+    padding: 5px;
+}
+
+.stad-container .inner-container .header .header-btns > div:hover {
+    color: #8d253d;
+}
+
+
+.stad-container .inner-container .header p {
+    margin: 0;
+}
+
+/* match card body */
+.stad-container .inner-container .body {
+    /* padding-top: 10px; */
+    flex: 1 0 0;
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #b8445f; */
+    /* display: none; */
+}
+
+.stad-container .inner-container .body  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    /* display: none; */
+    /* background-color: #8d253d; */
+}
+
+/* stadium card footer */
+.stad-container .inner-container .footer {
+    padding: 10px;
+    font-size: 10px;
+    /* flex-basis: 0; */
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* --------------- match form popup window -------------------*/
+.stad-form-con {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.473);
+}
+
+.stad-form-con input {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    outline: 1px solid gray;
+    transition: all 200ms ease-in-out;
+}
+
+.stad-form-con input:hover {
+    outline: 1px solid black;
+}
+
+.stad-form-con input:focus {
+    outline: 4px solid var(--world-cup-background-color);
+}
+
+.stad-form {
+    width: 400px;
+    height: 500px;
+    background-color: var(--match-form-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stad-form .inner-cont {
+    /* background-color: #b8445f; */
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stad-form .inner-cont .header {
+    /* background-color: #8d253d; */
+    display: flex;
+    align-items: center;
+    height: 100px;
+    border-bottom: 1px solid #ddd ;
+}
+
+.stad-form .inner-cont .body {
+    margin-top: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.stad-form .inner-cont .body .upload-img {
+    padding: 15px 10px;
+    flex-grow: 1;
+}
+
+.upload-img div {
+    border-radius: 10px;
+    outline: 2px dashed #ccc;
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    padding: 5px;
+}
+
+.upload-img div label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.stad-form .inner-cont .footer {
+    display: flex;
+    justify-content: center;
+}
+
+.stad-form .inner-cont .footer button {
+    border: none;
+    outline: none;
+    background-image: linear-gradient(#b8445f, #8d253d);
+    color: white;
+    font-weight: 600;
+    padding: 5px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.stad-form .inner-cont .footer button:nth-of-type(2) {
+    position: relative;
+    background-image: none;
+    color: black;
+    border: 3px solid var(--world-cup-background-color);
+}
+
+.stad-form .inner-cont .footer button:nth-of-type(2):hover {
+    background-color: #ccc;
+}
+
+.hidden {
+    display: none;
+}

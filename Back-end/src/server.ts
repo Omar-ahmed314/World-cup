@@ -7,6 +7,7 @@ import servicesRoutes from './handlers/servicesHandler';
 import matchRoutes from './handlers/matchHandler';
 import reservationRoutes from './handlers/reservationHandler';
 import stadiumRoutes from './handlers/stadiumHandler';
+import path from 'path';
 
 const app: Application = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +21,7 @@ const corsOptions = {
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
+app.use(express.static(path.join(__dirname, '../uploads')))
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).send('<h1> Hello from the store front project</h1>');
@@ -35,7 +37,8 @@ stadiumRoutes(app);
 app.use((err:Error, req: Request, res: Response, next: NextFunction) => {
     res.status(404);
     res.json({
-        msg: "Page not found"
+        // msg: "Page not found"
+        msg: err.message
     });
 });
 

@@ -1,0 +1,85 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.confirm-win-cont {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.345);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.confirm-win {
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: confirm-win-motion;
+    animation-duration: 200ms;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.confirm-win .inner-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.confirm-win .inner-cont .header {
+    border-bottom: 2px solid #ddd;
+}
+
+.confirm-win .inner-cont .body {
+    padding-top: 10px;
+    flex: 1 1 0;
+    display: flex;
+    justify-content: start;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.confirm-win .inner-cont .btns {
+    text-align: right;
+}
+
+.confirm-win .inner-cont .btns .confirm,
+.confirm-win .inner-cont .btns .cancel {
+    border: 3px solid var(--world-cup-background-color);
+}
+
+.confirm-win .inner-cont .btns .confirm {
+    color: white;
+    background-color: var(--world-cup-background-color);
+}
+
+.confirm-win .inner-cont .btns .cancel {
+    background-color: none;
+}
+
+.confirm-win button {
+    margin: 5px;
+    padding: 5px 10px;
+    border: none;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+@keyframes confirm-win-motion {
+    from {
+        opacity: 0;
+        /* transform: translate(2%, 2%); */
+    }
+    to {
+        opacity: 1;
+    }
+}

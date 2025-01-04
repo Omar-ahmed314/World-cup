@@ -5,6 +5,7 @@ export type stadium = {
     stadiumName: string,
     noRows: number,
 	noSeatsPerRow: number,
+    imageURL: string
 };
 
 export default class Stadium {
@@ -35,8 +36,8 @@ export default class Stadium {
     async create(Stadium: stadium): Promise<stadium> {
         try {
             const connection = await Client.connect();
-            const sql = 'INSERT INTO "Stadiums" ("stadiumName", "noRows", "noSeatsPerRow") VALUES (($1), ($2), ($3)) RETURNING *';
-            const result = await connection.query(sql, [Stadium.stadiumName, Stadium.noRows, Stadium.noSeatsPerRow]);
+            const sql = 'INSERT INTO "Stadiums" ("stadiumName", "noRows", "noSeatsPerRow", "imageURL") VALUES (($1), ($2), ($3), ($4)) RETURNING *';
+            const result = await connection.query(sql, [Stadium.stadiumName, Stadium.noRows, Stadium.noSeatsPerRow, Stadium.imageURL]);
             connection.release();
             return result.rows[0];
         } catch (error) {
@@ -47,8 +48,8 @@ export default class Stadium {
     async edit(Stadium: stadium): Promise<stadium> {
         try {
             const connection = await Client.connect();
-            const sql = 'UPDATE "Stadiums" SET "stadiumName" = ($1), "noRows" = ($2), "noSeatsPerRow" = ($3) WHERE "stadiumID" = ($4) RETURNING *';
-            const result = await connection.query(sql, [Stadium.stadiumName, Stadium.noRows, Stadium.noSeatsPerRow, Stadium.stadiumID]);
+            const sql = 'UPDATE "Stadiums" SET "stadiumName" = ($1), "noRows" = ($2), "noSeatsPerRow" = ($3), "imageURL" = ($4) WHERE "stadiumID" = ($5) RETURNING *';
+            const result = await connection.query(sql, [Stadium.stadiumName, Stadium.noRows, Stadium.noSeatsPerRow, Stadium.imageURL, Stadium.stadiumID]);
             connection.release();
             return result.rows[0];
         } catch (error) {
@@ -59,7 +60,7 @@ export default class Stadium {
     async delete(id: number): Promise<stadium> {
         try {
             const connection = await Client.connect();
-            const sql = 'DELETE FROM "Stadiums" WHERE "stadiumID" = ($1)';
+            const sql = 'DELETE FROM "Stadiums" WHERE "stadiumID" = ($1) RETURNING *';
             const result = await connection.query(sql, [id]);
             connection.release();
             return result.rows[0];

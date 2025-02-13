@@ -165,7 +165,7 @@
 
 .stad-form {
     width: 400px;
-    height: 500px;
+    /* height: 600px; */
     background-color: var(--match-form-color);
     position: absolute;
     top: 50%;

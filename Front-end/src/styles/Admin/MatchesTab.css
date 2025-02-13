@@ -49,8 +49,9 @@
 }
 
 .match-container {
+    padding: 10px;
     color: gray;
-    height: fit-content;
+    height: 180px;
     border-radius: 10px;
     background-color: var(--match-card-color);
     cursor: pointer;
@@ -64,8 +65,12 @@
 }
 
 .match-container .inner-container {
-    margin: 10px 10px 0 10px;
+    /* margin: 10px; */
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-content: space-between; */
     /* background-color: #b8445f; */
 }
 
@@ -98,22 +103,32 @@
 
 /* match card body */
 .match-container .inner-container .body {
-    padding-top: 10px;
-    /* background-color: #b8445f; */
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    /* background-color: #b8445f; */
+    flex: 1 1 0;
+    /* background-color: lightblue; */
 }
 
 .match-container .inner-container .body > div {
     width: 25%;
-    text-align: center;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: #b8445f; */
 }
+.match-container .inner-container .body > div p {
+    margin: 0;
+    width: max-content
+}
+
 
 .match-container .inner-container .body  img {
     width: 100%;
+    height: 50%;
 }
 
 /* match card footer */
@@ -121,6 +136,8 @@
     font-size: 10px;
     display: flex;
     justify-content: space-between;
+    /* background-color: #b8445f; */
+    /* align-items: center; */
 }
 
 

@@ -12,7 +12,32 @@ export type match = {
 	linemanTwo: string,
 };
 
+export type matchWithStadium = {
+    matchID?: number,
+    firstTeam: string,
+    secondTeam: string,
+    stadiumID: number,
+    matchDay: string,
+    matchTime: string,
+    referee: string,
+    linemanOne: string,
+    linemanTwo: string,
+    stadiumName: string
+};
+
 export default class Match {
+    async indexWithStadium(): Promise<matchWithStadium[]> {
+        try {
+            const connection = await Client.connect();
+            const sql = 'SELECT * FROM "Matches", "Stadiums" WHERE "Matches"."stadiumID" = "Stadiums"."stadiumID"';
+            const result = await connection.query(sql);
+            connection.release();
+            return result.rows;
+        } catch (error) {
+            throw new Error(`connection failed at the index query with error ${error}`);
+        }
+    }
+
     async index(): Promise<match[]> {
         try {
             const connection = await Client.connect();
@@ -61,7 +86,7 @@ export default class Match {
         try {
             const connection = await Client.connect();
             const sql = 'UPDATE "Matches" SET "firstTeam" = ($1), "secondTeam" = ($2), "stadiumID" = ($3), "matchTime" = ($4), referee = ($5), "linemanOne" = ($6), "linemanTwo" = ($7), "matchDay" = ($8) WHERE "matchID" = ($9) RETURNING *';
-            const result = await connection.query(sql, [Match.firstTeam, Match.secondTeam, , Match.stadiumID, Match.matchTime, Match.referee, Match.linemanOne, Match.linemanTwo, Match.matchDay, Match.matchID]);
+            const result = await connection.query(sql, [Match.firstTeam, Match.secondTeam, Match.stadiumID, Match.matchTime, Match.referee, Match.linemanOne, Match.linemanTwo, Match.matchDay, Match.matchID]);
             connection.release();
             return result.rows[0];
         } catch (error) {

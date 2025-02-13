@@ -1,10 +1,22 @@
 import Match, {match} from "../models/match";
 import { Response, Request, Application } from 'express';
 import { tokenVerfication } from "./middleware/userHandlerMid";
+import { log } from "console";
 
 const matchModel = new Match();
 
 // endpoints
+const indexWithStadium = async (req : Request, res: Response) => {
+    try {
+        const data = await matchModel.indexWithStadium();
+        res.status(200);
+        res.json(data);
+    } catch (error) {
+     res.status(500);
+     res.send(error);
+    }
+}
+
 const index = async (req : Request, res: Response) => {
    try {
        const data = await matchModel.index();
@@ -82,11 +94,12 @@ const _delete = async (req: Request, res: Response) => {
 }
 
 const matchRoutes = (app: Application) => {
+    app.get('/matchWithStadium', indexWithStadium);
     app.get('/match', index);
     app.get('/match/:id', show);
     app.post('/match', /*[tokenVerfication],*/ create);
-    app.put('/match', [tokenVerfication], edit);
-    app.delete('/match/:id', [tokenVerfication], _delete);
+    app.put('/match',  edit);
+    app.delete('/match/:id', _delete);
 }
 
 export default matchRoutes;

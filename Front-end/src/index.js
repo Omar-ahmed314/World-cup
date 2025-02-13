@@ -20,7 +20,7 @@ root.render(
     <BrowserRouter>
     <AuthProvider>
         <Routes>
-        <Route exact path='/' element={<Dashboard/>}/>
+        <Route exact path='/' element={<Home/>}/>
           {/* <Route element={<AutoReload/>}>
             <Route exact path='/' element={<Home/>}/>
             <Route path='/match/:id' element={<Match/>}/>

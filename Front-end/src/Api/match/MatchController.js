@@ -38,6 +38,15 @@ export default class MatchController {
         }
     }
 
+    async getMatchById (id) {
+        try {
+            const response = await axios.get(`${config.url}/match/${id}`)
+            return response?.data;
+        } catch (err) {
+            
+        }
+    }
+
     async update (data) {
         try {
             const response = await axios.put(`${config.url}/match`, data)

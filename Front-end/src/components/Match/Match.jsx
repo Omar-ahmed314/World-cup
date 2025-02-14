@@ -1,38 +1,12 @@
 import '../../styles/match/match.css'
-import egypt from '../../images/egypt.png';
-import brazil from '../../images/brazil.png';
 import refreeIcon from '../../images/whistle.png';
 import flagIcon from '../../images/flag.png';
 import Toolbar from '../Home/Toolbar';
-import { useState, useEffect} from 'react';
-import { Link, useParams } from 'react-router-dom';
-import axios from 'axios';
-import { config } from '../../config';
-
-// const initialMatch = {
-//   firstTeam: '',
-//   secondTeam: '',
-//   date: '',
-//   time: '',
-//   stadium: '',
-//   mainRefree: '',
-//   linesmen: []
-// }
+import { Link, useLocation } from 'react-router-dom';
+import FlagEngine from '../flagsEngine';
 
 function Match(props) {
-  const [match, setMatch] = useState({});
-  const {id} = useParams();
-  useEffect(() => {
-    // TODO: get match data from backend
-    const getData = async () => {
-      const matchData = await axios.get(`${config.url}/match/${id}`)
-      const stadium = await axios.get(`${config.url}/stadium/${matchData.data.stadiumid}`)
-      // console.log(stadium.data)
-      // console.log({...matchData.data, ...stadium.data})
-      setMatch({...matchData.data, ...stadium.data});
-    }
-    getData();
-  }, []);
+  const {match} = useLocation().state;
 
   return (
     <div className="match_page">
@@ -40,25 +14,25 @@ function Match(props) {
       <div className="match_container">
         <div className="match_container_header">
           <div className="match_stadium">
-            {match.stadiumname}
+            {match.stadiumName}
           </div>
           <div className="match_time">
-            {match.matchday} {match.matchtime}
+            {new Date(match.matchDay).toDateString()} {match.matchTime}
           </div>
         </div>
         <div className="match_teams">
           <div className="match_team">
-            {match.firstteam}
+            {match.firstTeam}
           </div>
           <div className="team_logo">
-            <img src={egypt}/>
+            <img src={new FlagEngine().getFlagSrcByName(match.firstTeam)}/>
           </div>
           <span>vs</span>
           <div className="team_logo">
-            <img src={brazil}/>
+            <img src={new FlagEngine().getFlagSrcByName(match.secondTeam)}/>
           </div>
           <div className="match_team">
-            {match.secondteam}
+            {match.secondTeam}
           </div>
         </div>
         <div className="match_refree">
@@ -68,15 +42,15 @@ function Match(props) {
         <div className="match_linesmen">
           <div className="match_lineman">
             <img src={flagIcon} alt="flagIcon"/>
-            <p>{match.linemanone}</p>
+            <p>{match.linemanOne}</p>
           </div>
           <div className="match_lineman">
             <img src={flagIcon} alt="flagIcon"/>
-            <p>{match.linemantwo}</p>
+            <p>{match.linemanTwo}</p>
           </div>
         </div>
         <div className='reservation_container'>
-          <Link to={`/buy_ticket/${match.matchid}`} state={{noRows: match.norows, noSeats: match.noseatsperrow}}>buy ticket</Link>
+          <Link to={`/buy_ticket/${match.matchID}`} state={{noRows: match.noRows, noSeats: match.noSeatsPerRow}}>buy ticket</Link>
         </div>
       </div>
     </div>

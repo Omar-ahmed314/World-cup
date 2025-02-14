@@ -20,8 +20,9 @@ root.render(
     <BrowserRouter>
     <AuthProvider>
         <Routes>
-        <Route exact path='/' element={<Home/>}/>
+        {/* <Route exact path='/' element={<Home/>}/> */}
           {/* <Route element={<AutoReload/>}>
+          </Route> */}
             <Route exact path='/' element={<Home/>}/>
             <Route path='/match/:id' element={<Match/>}/>
             <Route path='/buy_ticket/:id' element={<BuyTicket/>}/>
@@ -29,7 +30,6 @@ root.render(
             <Route path='/login' element={<Sign/>}/>
             <Route path='/signup' element={<Register/>}/>
             <Route path='/dashboard' element={<Dashboard/>}/>
-          </Route> */}
         </Routes>
     </AuthProvider>
     </BrowserRouter>

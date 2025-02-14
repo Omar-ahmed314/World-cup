@@ -4,7 +4,7 @@ import '../../styles/Home/mcImages.css'
 
 function MCImages() {
   return (
-    <div className="images_container">
+    <div className="images_container container">
         <img src={messiImage} alt="messi" className="messi_image"/>
         <img src={ronaldoImage} alt="ronaldo" className="ronaldo_image"/>
     </div>

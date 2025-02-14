@@ -59,5 +59,6 @@
 }
 
 .footerFooter ul li{
-    margin: 5%;
+    margin: 5px;
+    width: max-content
 }

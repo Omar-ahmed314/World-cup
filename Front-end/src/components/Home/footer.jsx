@@ -19,7 +19,7 @@ function Footer() {
         </div>
         <div className='footerFooter'>
             <ul>
-                <li><span>Privacy Policy</span></li>
+                <li>Privacy Policy</li>
                 <li>Terms Of Service</li>
                 <li>Advertise</li>
                 <li>Manage Cookie Preference</li>

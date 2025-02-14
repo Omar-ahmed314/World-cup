@@ -1,10 +1,9 @@
 import '../../styles/Home/matches.css'
 import worldCup from '../../images/world cup.png'
 import { Link } from 'react-router-dom';
-import { config } from '../../config';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import MatchController from '../../Api/match/MatchController';
+import FlagEngine from '../flagsEngine';
 
 
 function Matches() {
@@ -21,25 +20,35 @@ function Matches() {
   }, [matches])
 
   return (
-    <div className="matchesSlot">
+    <div className="matchesSlot container">
         <div className="slotHeader"><h2>Matches</h2></div>
         <div className="matchesContainer">
           {
             matches.map(match => {
               return (
                 <Link to={`/match/${match.matchID}`} className="matchContainer" state={{match}}>
-                  <div className="match_time">
-                    {match.matchTime} {new Date(match.matchDay).toDateString()}
+                  <div className="match-date">
+                    
+                      {new Date(match.matchDay).toDateString()}
+                    
                   </div>
                   <div className="match_teams">
-                    {match.firstTeam} <span>vs</span> {match.secondTeam}
+                    <div className="match-team-container">
+                      <img src={new FlagEngine().getFlagSrcByName(match.firstTeam)} alt="flag"/>
+                    <p>{match.firstTeam}</p> 
+                    </div>
+                    <span>{String(match.matchTime).slice(0, 5)}</span>
+                    <div className="match-team-container">
+                    <img src={new FlagEngine().getFlagSrcByName(match.secondTeam)} alt="flag"/>
+                    <p>{match.secondTeam}</p>
+                    </div>
                   </div>
                 </Link>
                 )
             })
           }
         </div>
-        <img src={worldCup} alt="worldcup"/>
+        <img className="world-cup-logo" src={worldCup} alt="worldcup"/>
     </div>
   );
 }

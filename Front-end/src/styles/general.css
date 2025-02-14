@@ -1,0 +1,35 @@
+/* write the media quary for the main screens*/
+* {
+    --sm: 767px;
+    --md: 992px;
+    --lg: 1200px;
+}
+
+@media (max-width: var(--sm)) {
+  .container {
+    width: 737px;
+  }
+}
+
+@media (min-width: calc(var(--sm) + 1)) {
+    .container {
+      width: 738px;
+    }
+  }
+
+@media (min-width: var(--md)) {
+    .container {
+        width: 962;
+    }
+}
+
+@media (min-width: var(--lg)) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+}

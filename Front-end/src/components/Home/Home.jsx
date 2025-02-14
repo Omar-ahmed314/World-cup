@@ -8,16 +8,18 @@ import Toolbar from '../Home/Toolbar';
 
 function Home() {
   return (
-    <div className='home_page'>
+    <>
       <Toolbar/>
-      <div className='home_page_body'>
-        <MCImages/>
-        <Carosel/>
-        <Middle/>
-        <Matches/>
+      <div className='home_page'>
+        <div className='home_page_body'>
+          <MCImages/>
+          <Carosel/>
+          <Middle/>
+          <Matches/>
+        </div>
+        <Footer/>
       </div>
-      <Footer/>
-    </div>
+    </>
   );
 }
 

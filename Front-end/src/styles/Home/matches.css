@@ -1,7 +1,8 @@
 /* Matches Slot*/
 .matchesSlot {
-    min-height: 700px;
-    margin: 5% 0 0 0;
+    /* min-height: 700px; */
+    /* margin: 50px 0; */
+    /* margin-bottom: 50px; */
     position: relative;
 }
 
@@ -35,7 +36,7 @@
     right: 120%;
 }
 
-.matchesSlot img {
+.matchesSlot .world-cup-logo {
     position: absolute;
     top: 0;
     left: 0;
@@ -48,37 +49,88 @@
 
 /* ===================== Matches ===================== */
 .matchesContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* background-color: antiquewhite; */
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    overflow-x: auto;
 }
 
 .matchesContainer a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .matchContainer{
-    background-image: linear-gradient(rgba(240, 240, 240, 1), rgba(216, 216, 216, 1));
-    border: 1px solid black;
-    margin: 2%;
-    height: 150px;
-    width: 60%;
-    border-radius: 20px;
+    background-image: linear-gradient(90deg, #48052b, #791137);
+    border: 1px solid gray;
+    margin: 10px;
+    height: 200px;
+    width: 300px;
+    border-radius: 10px;
     z-index: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.matchContainer:hover {
+    border: 1px solid black;
+}
+
+.matchContainer .match-date {
+    /* background-color: aliceblue; */
+    height: 40%;
+    padding: 10px;
+    width: 100%;
+    display: flex;
     justify-content: center;
+    align-items: end;
 }
 
 .matchContainer .match_teams {
-    font-size: 2em;
-    font-weight: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* background-color: antiquewhite; */
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    /* font-size: 2em; */
+    /* font-weight: bold; */
+}
+
+.matchContainer .match_teams > div {
+    /* background-color: aliceblue; */
+    display: flex;
+    width: 20%;
+    height: 70%;
+    flex-direction: column; 
+    justify-content: start;
+    align-items: center;
+    margin: 0 10px; 
+}
+
+.matchContainer .match_teams > div p {
+    width: max-content;
+    margin: 0;
+    font-size: 1.2em;
+}
+.matchContainer .match_teams > div img {
+    height: 50%;
+    width: 100%;
+    
 }
 
 .matchContainer .match_teams span {
-    font-size: 0.8em;
-    font-weight: normal;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 3px solid wheat;
+    border-radius: 5px;
+    padding: 0 5px;
+    background-color: #48052b;
 }

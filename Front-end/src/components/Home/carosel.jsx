@@ -5,7 +5,7 @@ import c3 from '../../images/c3.jpg'
 
 function Carosel() {
   return (
-    <div className="caroselContainer">
+    <div className="caroselContainer container">
         <div className='c1'><img src={c1}/></div>
         <div className='c2'><img src={c2}/></div>
         <div className='c3'><img src={c3}/></div>

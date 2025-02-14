@@ -4,7 +4,7 @@ import '../../styles/Home/middle.css'
 
 function Middle() {
   return (
-    <div className="middleContainer">
+    <div className="middleContainer container">
         <div>
             <p>FIFA World Cup <br/> Qatar 2022™ <br/> Gather Us</p>
             <button>Official Products</button>

@@ -1,3 +1,5 @@
+@import './styles/general.css';
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -27,28 +29,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-/*XS*/
-@media (max-width: 767px) {
-
-}
-
-/*S*/
-@media (min-width: 768px) {
-
-}
-
-/*M*/
-@media (min-width: 992px) {
-
-}
-
-/*L*/
-@media (min-width: 1200px) {
-  .container {
-    width: 1700px;
-    margin: auto;
-    padding: 0 15px;
-  }
 }

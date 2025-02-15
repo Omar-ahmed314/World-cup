@@ -17,40 +17,49 @@ function Match(props) {
               {match.stadiumName} Stadium
             </div>
             <div className="match_time">
-              {new Date(match.matchDay).toDateString()} {match.matchTime}
+              {new Date(match.matchDay).toDateString()} {String(match.matchTime).slice(0, 5)}
             </div>
           </div>
-          <div className="match_teams">
-            <div className="match_team">
-              {match.firstTeam}
-            </div>
+          <div className="match_teams_flags">
+            
             <div className="team_logo">
               <img src={new FlagEngine().getFlagSrcByName(match.firstTeam)}/>
             </div>
-            <span>v</span>
+            
             <div className="team_logo">
               <img src={new FlagEngine().getFlagSrcByName(match.secondTeam)}/>
             </div>
-            <div className="match_team">
-              {match.secondTeam}
-            </div>
+            
           </div>
-          <div className="match_refree">
-            <img src={refreeIcon} alt="refreeIcon"/>
-            <p>{match.referee}</p>
-          </div>
-          <div className="match_linesmen">
-            <div className="match_lineman">
-              <img src={flagIcon} alt="flagIcon"/>
-              <p>{match.linemanOne}</p>
+          <div className="match-teams-names-container">
+            <div className="match-teams-names-wrapper">
+              <div className="match_team">
+                {match.firstTeam}
+              </div>
+              <span>v</span>
+              <div className="match_team">
+                {match.secondTeam}
+              </div>
             </div>
-            <div className="match_lineman">
-              <img src={flagIcon} alt="flagIcon"/>
-              <p>{match.linemanTwo}</p>
+           </div>
+          <div className="match-details">
+            <div className="match_refree">
+              <img src={refreeIcon} alt="refreeIcon"/>
+              <p>{match.referee}</p>
             </div>
-          </div>
-          <div className='reservation_container'>
-            <Link to={`/buy_ticket/${match.matchID}`} state={{noRows: match.noRows, noSeats: match.noSeatsPerRow}}>buy ticket</Link>
+            <div className="match_linesmen">
+              <div className="match_lineman">
+                <img src={flagIcon} alt="flagIcon"/>
+                <p>{match.linemanOne}</p>
+              </div>
+              <div className="match_lineman">
+                <img src={flagIcon} alt="flagIcon"/>
+                <p>{match.linemanTwo}</p>
+              </div>
+            </div>
+            <div className='reservation_container'>
+              <Link to={`/buy_ticket/${match.matchID}`} state={{noRows: match.noRows, noSeats: match.noSeatsPerRow}}>buy ticket</Link>
+            </div>
           </div>
         </div>
       </div>

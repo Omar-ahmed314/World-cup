@@ -1,160 +1,189 @@
 .match_page {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  color: gray;
+  font-weight: bold;
 }
 
 /* teams container */
 .match_page .match_container {
-    background-image: url("../../images/stad2.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    flex: 1 1 0;
-    /* background-color: antiquewhite; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-image: url('../../images/stad2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex: 1 1 0;
+  /* background-color: antiquewhite; */
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 50px;
+}
+
+.match-wrapper {
+  width: 60%;
+  height: 100%;
+  margin-right: 20px;
+  background-color: #dddddd82;
+  outline: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
 }
 
 /* match container header */
-.match_page .match_container .match_container_header{
-    color: gray;
-    /* padding-top: 3%; */
-    width: 100%;
-    /* height: 10%; */
-    display: flex;
-    justify-content: space-around;
+.match-wrapper .match_container_header {
+  height: 30%;
+  padding: 40px 0 10px 50px;
+  font-weight: bold;
+  width: 100%;
 }
 
-.match_container_header > div {
-    font-size: 24px;
-    /* background-color: aliceblue; */
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.match_container_header > div p {
+  margin: 0;
+  line-height: normal;
+  font-size: 40px;
+}
+
+.match_container_header .match_stadium p:last-child {
+  font-size: 20px;
 }
 
 /* match teams */
 .match_page .match_container .match_teams_flags {
-    /* margin: 3%; */
-    width: 100%;
-    /* background-color: aliceblue; */
-    color: black;
-    flex: 1 1 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3em;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  /* background-color: antiquewhite; */
 }
 
-.match_page .match_container .match_teams_flags > div {
-    /* background-color: aliceblue; */
-    height: 100%;
-    width: 20%;
-    margin: 0 50px;
-    border: 5px solid aliceblue;
-    border-radius: 5px;
-    box-shadow: -5px 5px 5px #888888;
-    /* filter: grayscale(100%) */
+.match_page .match_container .match_teams_flags .match-team {
+  /* background-color: aliceblue; */
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.match_teams_flags .match-team .team-logo {
+  width: 100%;
+  height: 50%;
+}
+
+.match_teams_flags .match-team .team-name {
+  font-size: 2em;
+  width: max-content;
 }
 
 .match_page .match_container .match_teams_flags img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  outline: 1px solid black;
 }
 
 .match_page .match_container .match_teams_flags span {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
-    font-weight: 200;
+  font-size: 2.5em;
+  margin: 40px;
 }
-
-.match_page .match_container .match-teams-names-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    /* background-color: #851932; */
-}
-
-.match-teams-names-wrapper {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 2em;
-    /* font-weight: bold; */
-    color: white;
-    width: 60%;
-    /* background-color: #851932; */
-    background-image: linear-gradient(#b8445f, #8d253d);
-    display: flex;
-    justify-content: space-evenly;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 10px;
-}
-
 
 .match-details {
-    flex: 1 1 0;
-    background-color: aliceblue;
+  flex: 1 1 0;
+  width: 100%;
+  /* background-color: aliceblue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 /* match details */
-.match_lineman, .match_refree {
-    padding: 5px;
-    margin: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    background-color: rgb(85 0 101);
-    color: white;
-    font-size: 1em;
-    font-weight: 500;
-    /* margin: 1%; */
+.match-details > div {
+  min-width: 100px;
+  padding: 2px;
+  margin: 0 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #8d253d;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  /* margin: 1%; */
 }
 
-.match_lineman img, .match_refree img {
-    height: 16px;
-    margin: 0 5px;
+.match-details > div img {
+  height: 16px;
+  margin: 0 5px;
 }
 
-/* match linemen */
-.match_linesmen {
-    /* background-color: antiquewhite; */
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    margin: 5px;
-    
-}
-
-.match_linesmen p, .match_refree p {
-    margin: 0;
+.match-details > div p {
+  margin: 0;
 }
 
 /* reservation container */
-.reservation_container {
-    /* background-color: rgb(85 0 101); */
-    margin: 1% 0;
-    height: 6rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.ticket-details-wrapper {
+  width: 20%;
+  background-color: #dddddd82;
+  outline: 1px solid black;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.ticket-details-wrapper ul {
+  list-style: none;
+  padding: 0;
+}
+
+.ticket-details-wrapper ul li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
 }
 
 /* reservation button */
+.reservation_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.reservation_container span {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: black;
+}
+
 .reservation_container a {
-    background-color: rgb(85 0 101);
-    color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.5rem;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
+  background-color: #8d253d;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* reservation button hover */
 .reservation_container a:hover {
-    background-color: rgb(0 0 0 / 50%);
+  background-color: rgb(0 0 0 / 50%);
 }

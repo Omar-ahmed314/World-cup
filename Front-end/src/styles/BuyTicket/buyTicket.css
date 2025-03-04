@@ -1,77 +1,53 @@
 .buy_ticket_page {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .buy_ticket_body {
-    /* background-color: azure; */
-    padding: 0 20%;
-    display: flex;
-    flex-direction: column;
-    /* flex-grow: 1; */
-    height: 100%;
-    width: 100%;
+  padding: 0 20%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 /* stadium seats */
 .stadium_seats {
-    /* background-color: antiquewhite; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50%;
-    flex-grow: 1;
 }
 
 .seats_container {
-    /* background-color: aqua; */
-    width: 50%;
-    height: 60%;
+  width: 100%;
+  padding: 10px;
 }
 
-.seats_container table{
-    /* background-color: antiquewhite; */
-    /* border-collapse: collapse;*/
-    /* border: 1px solid black;
-    display: flex;
-    flex-wrap: wrap; */
-    width: 100%;
-    height: 100%;
+.seats_container table {
+  width: 100%;
+  height: 100%;
 }
 
-.seats_container table tr{
-    /* border: 1px solid black; */
-    /* background-color: blue; */
-    /* display: flex; */
-    /* flex-basis: 100%; */
+.seats_container table tr {
 }
 
-.seats_container table tr td{
-    /* border: 1px solid black; */
-    /* background-color: blue; */
-    /* display: flex; */
-    text-align: center;
+.seats_container table tr td {
+  text-align: center;
 }
 
-.seats_container table tr td > input{
-    /* border: 1px solid black; */
-    /* background-color: #0ad0df; */
-    /* display: flex; */
-    display: none;
+.seats_container table tr td > input {
+  display: none;
 }
 
-.seats_container table tr td > .valid_seat + label img{
-    filter: invert(72%) sepia(43%) saturate(5958%) hue-rotate(141deg) brightness(106%) contrast(92%);
+.seats_container table tr td > .valid_seat + label img {
+  filter: invert(72%) sepia(43%) saturate(5958%) hue-rotate(141deg)
+    brightness(106%) contrast(92%);
 }
 
-.seats_container table tr td > .valid_seat:checked + label img{
-    filter: invert(12%) sepia(93%) saturate(5970%) hue-rotate(10deg) brightness(85%) contrast(122%);
+.seats_container table tr td > .valid_seat:checked + label img {
+  filter: invert(12%) sepia(93%) saturate(5970%) hue-rotate(10deg)
+    brightness(85%) contrast(122%);
 }
 
 /* seat disabled */
-.invalid_seat{
-    
+.invalid_seat {
 }

@@ -4,13 +4,34 @@ import flagIcon from '../../images/flag.png';
 import Toolbar from '../Home/Toolbar';
 import { Link, useLocation } from 'react-router-dom';
 import FlagEngine from '../flagsEngine';
+import ReserveMatchForm from './ReserveMatchForm';
+import { useState } from 'react';
 
 function Match(props) {
   const { match } = useLocation().state;
+  const [isMatchFromOpen, setMatchFormOpen] = useState(false);
+
+  const handleMatchFormOpen = () => {
+    setMatchFormOpen(true);
+  };
+
+  const handleMatchFormClose = () => {
+    setMatchFormOpen(false);
+  };
+
+  const callbackFunction = () => {
+    // some code here
+  };
 
   return (
     <div className="match_page">
       <Toolbar />
+      <ReserveMatchForm
+        isOpen={isMatchFromOpen}
+        handleClose={handleMatchFormClose}
+        callbackFunction={callbackFunction}
+        params={match}
+      />
       <div className="match_container">
         <div className="match-wrapper">
           <div className="match_container_header">
@@ -81,12 +102,9 @@ function Match(props) {
           </ul>
           <div className="reservation_container">
             <span>$ 250</span>
-            <Link
-              to={`/buy_ticket/${match.matchID}`}
-              state={{ noRows: match.noRows, noSeats: match.noSeatsPerRow }}
-            >
+            <div className="reservation-button" onClick={handleMatchFormOpen}>
               Purchase Ticket
-            </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -1,3 +1,9 @@
+import {
+  Form as AbstractFrom,
+  FormBody,
+  FormFooter,
+  FormHeader,
+} from '../Admin/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../styles/BuyTicket/buyTicket.css';
 import seat_image from '../../images/seat.png';
@@ -10,11 +16,15 @@ import {
   AccordionBody,
 } from 'reactstrap';
 import { useState, useEffect, useRef } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { config } from '../../config';
 
-function BuyTicket(props) {
+const ReserveMatchForm = ({
+  isOpen,
+  handleClose,
+  callbackFunction,
+  params,
+}) => {
   // this state is used to toggle the accordion
   const [open, setOpen] = useState('0');
   // this state is used to toggle the empty seats
@@ -25,10 +35,10 @@ function BuyTicket(props) {
   const [invalidSeats, setSeats] = useState([]);
   // this array is used to store the reserved seats for the current user only
   const reservedSeats = useRef({});
-  // the id of the current match
-  const { id } = useParams();
+  // set the match id
+  const id = params.matchId;
   // the number of rows and seats in the stadium
-  const { noRows, noSeats } = useLocation().state;
+  const { noRows, noSeatsPerRow } = params;
   // this function is used to check if the seat is reserved or not
   const isValidSeat = (seatNo) => invalidSeats.includes(seatNo);
   // this function is used to insert the checked seats into reservedSeats array
@@ -78,44 +88,42 @@ function BuyTicket(props) {
     }
   };
   return (
-    <div className="buy_ticket_page">
-      <Toolbar />
-      <div className="buy_ticket_body">
-        <div className="stadium_seats">
-          <div className="seats_container">
-            <table>
-              {new Array(noRows).fill(0).map((row, i) => {
-                return (
-                  <tr key={i}>
-                    {new Array(noSeats).fill(0).map((col, j) => {
-                      return (
-                        <td key={i * noSeats + j + 1}>
-                          <input
-                            type="checkbox"
-                            name="seat"
-                            id={i * noSeats + j + 1}
-                            className={
-                              isValidSeat(i * noSeats + j + 1)
-                                ? 'invalid_seat'
-                                : 'valid_seat'
-                            }
-                            onClick={() => {
-                              console.log(i * noSeats + j + 1);
-                              insertSeats(i * noSeats + j + 1);
-                            }}
-                          />
-                          <label for={i * noSeats + j + 1}>
-                            <img src={seat_image} alt="seat" />
-                          </label>
-                        </td>
-                      );
-                    })}
-                  </tr>
-                );
-              })}
-            </table>
-          </div>
+    <AbstractFrom isOpen={isOpen} handleClose={handleClose}>
+      <FormHeader>Reserve Match</FormHeader>
+      <FormBody>
+        <div className="seats_container">
+          <table>
+            {new Array(noRows).fill(0).map((row, i) => {
+              return (
+                <tr key={i}>
+                  {new Array(noSeatsPerRow).fill(0).map((col, j) => {
+                    return (
+                      <td key={i * noSeatsPerRow + j + 1}>
+                        <input
+                          type="checkbox"
+                          name="seat"
+                          id={i * noSeatsPerRow + j + 1}
+                          className={
+                            isValidSeat(i * noSeatsPerRow + j + 1)
+                              ? 'invalid_seat'
+                              : 'valid_seat'
+                          }
+                          onClick={() => {
+                            insertSeats(i * noSeatsPerRow + j + 1);
+                          }}
+                        />
+                        <label for={i * noSeatsPerRow + j + 1}>
+                          <img src={seat_image} alt="seat" />
+                        </label>
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </table>
         </div>
+
         <div className="paying_methods">
           <Accordion open={open} toggle={toggle}>
             <AccordionItem>
@@ -149,9 +157,13 @@ function BuyTicket(props) {
             </AccordionItem>
           </Accordion>
         </div>
-      </div>
-    </div>
+      </FormBody>
+      <FormFooter>
+        <button>Buy</button>
+        <button onClick={handleClose}>Cancel</button>
+      </FormFooter>
+    </AbstractFrom>
   );
-}
+};
 
-export default BuyTicket;
+export default ReserveMatchForm;

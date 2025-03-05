@@ -230,6 +230,7 @@
 }
 
 .stad-form .inner-cont .footer {
+  padding: 10px;
   display: flex;
   justify-content: center;
 }

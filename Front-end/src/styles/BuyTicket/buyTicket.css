@@ -51,3 +51,22 @@
 /* seat disabled */
 .invalid_seat {
 }
+
+/* paying methods */
+.paying_methods {
+  display: flex;
+}
+
+.paying_methods > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.paying_methods div:first-child {
+  flex: 2;
+  margin-right: 5px;
+}
+
+.paying_methods div:last-child {
+  flex: 1;
+}

@@ -17,22 +17,21 @@ import ManagerDashboard from './components/Manager/ManagerDashboard';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    <BrowserRouter>
+  <BrowserRouter>
     <AuthProvider>
-        <Routes>
-        {/* <Route exact path='/' element={<Home/>}/> */}
-          {/* <Route element={<AutoReload/>}>
-          </Route> */}
-            <Route exact path='/' element={<Home/>}/>
-            <Route path='/match/:id' element={<Match/>}/>
-            <Route path='/buy_ticket/:id' element={<BuyTicket/>}/>
-            <Route path='/reserved_matches' element={<ReservedMatches/>}/>
-            <Route path='/login' element={<Sign/>}/>
-            <Route path='/signup' element={<Register/>}/>
-            <Route path='/dashboard' element={<Dashboard/>}/>
-        </Routes>
+      <Routes>
+        <Route element={<AutoReload />}>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/match/:id" element={<Match />} />
+          {/* <Route path='/buy_ticket/:id' element={<BuyTicket/>}/> */}
+          <Route path="/reserved_matches" element={<ReservedMatches />} />
+          <Route path="/login" element={<Sign />} />
+          <Route path="/signup" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
+      </Routes>
     </AuthProvider>
-    </BrowserRouter>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

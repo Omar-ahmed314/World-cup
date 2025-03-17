@@ -78,6 +78,7 @@ const MatchForm = ({ isOpen, handleClose, callbackFunction }) => {
   const [secondFlagSelected, setSecondFlagSelected] = useState('');
   const [stadiumList, setStadiumList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const matchController = MatchController();
   // create refs for the inputs
   const date = useRef(null);
   const time = useRef(null);
@@ -103,7 +104,7 @@ const MatchForm = ({ isOpen, handleClose, callbackFunction }) => {
         linemanOne: firstLineman.current.value,
         linemanTwo: secondLineman.current.value,
       };
-      await new MatchController().add(matchData);
+      await matchController.add(matchData);
     } catch (error) {}
   };
 

@@ -2,16 +2,23 @@ import { Outlet } from 'react-router-dom';
 import useRefreshToken from '../Hooks/useRefreshToken';
 import { Fragment, useEffect, useState } from 'react';
 import ReactLoading from 'react-loading';
+import { decodeToken } from 'react-jwt';
+import { useNavigate } from 'react-router-dom';
 
 const AutoReload = () => {
   const [isLoading, setLoading] = useState(true);
   const refresh = useRefreshToken();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const reload = async () => {
       try {
         setLoading(true);
-        await refresh();
+        const accessToken = await refresh();
+        const decodedToken = decodeToken(accessToken);
+        if (decodedToken['role'] === 'admin') {
+          navigate('/dashboard', { replace: true });
+        }
         setLoading(false);
       } catch (error) {
         console.log('You have to login manualy');

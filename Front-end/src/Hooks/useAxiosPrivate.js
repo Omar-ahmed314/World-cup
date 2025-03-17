@@ -11,7 +11,7 @@ const useAxiosPrivate = () => {
     const requestInterceptor = axiosPrivate.interceptors.request.use(
       (request) => {
         if (!request.headers['Authorization']) {
-          request.headers['Authorization'] = `Bearer ${auth}`;
+          request.headers['Authorization'] = `Bearer ${auth?.accessToken}`;
         }
         return request;
       },

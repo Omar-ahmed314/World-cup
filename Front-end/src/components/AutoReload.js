@@ -16,7 +16,6 @@ const AutoReload = () => {
         setLoading(true);
         const accessToken = await refresh();
         const decodedToken = decodeToken(accessToken);
-        console.log(decodedToken);
         if (decodedToken['role'] === 'admin') {
           navigate('/dashboard', { replace: true });
         }

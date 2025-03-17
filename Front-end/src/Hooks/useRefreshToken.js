@@ -14,8 +14,9 @@ const useRefreshToken = () => {
     });
 
     const accessToken = response.data['accessToken'];
-
-    setAuth(accessToken);
+    const { userID, userName, role, roleApproved } = decodeToken(accessToken);
+    // set the auth value to the userid and username
+    setAuth({ userID, userName, role, roleApproved, accessToken });
 
     return accessToken;
   };

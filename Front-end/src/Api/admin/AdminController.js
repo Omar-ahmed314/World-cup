@@ -1,5 +1,6 @@
 import useAxiosPrivate from '../../Hooks/useAxiosPrivate';
 import { config } from '../../config';
+import axios from 'axios';
 
 const AdminController = () => {
   const axiosPrivate = useAxiosPrivate();
@@ -21,7 +22,14 @@ const AdminController = () => {
     return response;
   };
 
-  return { getUsers, deleteUser, userApprove };
+  const logout = async () => {
+    const response = await axios.post(`${config.url}/user/logout`, undefined, {
+      withCredentials: true,
+    });
+    return response;
+  };
+
+  return { getUsers, deleteUser, userApprove, logout };
 };
 
 export default AdminController;

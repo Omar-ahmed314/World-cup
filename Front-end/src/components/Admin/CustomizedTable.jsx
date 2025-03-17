@@ -13,6 +13,7 @@ import Paper from '@mui/material/Paper';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import AdminController from '../../Api/admin/AdminController';
+import Confirm from './Confirm';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -50,6 +51,16 @@ export function MembersTable() {
   const [users, setUsers] = useState();
   const [deleteState, setDeleteState] = useState(false);
   const adminAPI = AdminController();
+  const [isConfirmOpen, setConfirmOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState();
+
+  const handleConfirmClose = () => {
+    setConfirmOpen(false);
+  };
+
+  const handleConfirmOpen = () => {
+    setConfirmOpen(true);
+  };
 
   const deleteUser = async (userID) => {
     try {
@@ -69,6 +80,13 @@ export function MembersTable() {
 
   return (
     <>
+      <Confirm
+        isOpen={isConfirmOpen}
+        handleClose={handleConfirmClose}
+        confirmFunction={deleteUser}
+        params={currentUser}
+        text={`Are you sure you want to delete ${currentUser?.userName}`}
+      />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
@@ -95,7 +113,10 @@ export function MembersTable() {
                   <IconButton
                     aria-label="delete"
                     size="small"
-                    onClick={() => deleteUser(user.userID)}
+                    onClick={() => {
+                      setCurrentUser(user);
+                      handleConfirmOpen();
+                    }}
                   >
                     <DeleteOutlinedIcon />
                   </IconButton>
@@ -122,6 +143,16 @@ export function WaitingTable() {
   const [pendingUsers, setPendingUsers] = useState([]);
   const [snackBarOpen, setSnackBarOpen] = useState(false);
   const adminAPI = AdminController();
+  const [isConfirmOpen, setConfirmOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState();
+
+  const handleConfirmClose = () => {
+    setConfirmOpen(false);
+  };
+
+  const handleConfirmOpen = () => {
+    setConfirmOpen(true);
+  };
 
   const userApprove = async (userID) => {
     try {
@@ -142,6 +173,13 @@ export function WaitingTable() {
 
   return (
     <>
+      <Confirm
+        isOpen={isConfirmOpen}
+        handleClose={handleConfirmClose}
+        confirmFunction={userApprove}
+        params={currentUser}
+        text={`Are you sure you want to approve ${currentUser?.userName}`}
+      />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
@@ -173,7 +211,10 @@ export function WaitingTable() {
                       fontSize: '10px',
                       fontWeight: 'bold',
                     }}
-                    onClick={() => userApprove(user.userID)}
+                    onClick={() => {
+                      setCurrentUser(user);
+                      handleConfirmOpen();
+                    }}
                   >
                     Approve
                   </Button>

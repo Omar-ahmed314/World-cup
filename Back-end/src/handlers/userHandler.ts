@@ -129,6 +129,8 @@ const login = async (req: Request, res: Response) => {
       {
         userID: data.userID,
         userName: data.userName,
+        role: data.userRole,
+        roleApproved: data.roleApproved,
       },
       process.env.JSON_SECRET_KEY as unknown as string
     );
@@ -182,16 +184,14 @@ const _delete = async (req: Request, res: Response) => {
 };
 
 const refresh = (req: Request, res: Response) => {
-  const refreshToken: string = req.cookies['worldcup-jwt'];
-  const accessTokenPayload = jwt.decode(refreshToken as string);
-
   try {
-    const verify = jwt.verify(
+    const refreshToken: string = req.cookies['worldcup-jwt'];
+    const { userID, userName, role, roleApproved }: any = jwt.verify(
       refreshToken,
       process.env.JSON_SECRET_KEY as unknown as string
     );
     const newAccessToken = jwt.sign(
-      accessTokenPayload as string,
+      { userID, userName, role, roleApproved } as any,
       process.env.JSON_SECRET_KEY as unknown as string,
       {
         expiresIn: '1h',

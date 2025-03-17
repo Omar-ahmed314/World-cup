@@ -1,27 +1,26 @@
-import axios from "../axios";
-import useAuth from "./useAuth";
-import { decodeToken } from "react-jwt";
+import axios from '../axios';
+import useAuth from './useAuth';
+import { decodeToken } from 'react-jwt';
 
 const useRefreshToken = () => {
-    const {setAuth} = useAuth();
+  const { setAuth } = useAuth();
 
-    const refresh = async () => {
-        const response = await axios.post('/user/refresh', undefined, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            withCredentials: true
-        });
+  const refresh = async () => {
+    const response = await axios.post('/user/refresh', undefined, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
 
-        const accessToken = response.data['accessToken'];
-        const decodedToken = decodeToken(accessToken);
+    const accessToken = response.data['accessToken'];
 
-        setAuth(decodedToken);
+    setAuth(accessToken);
 
-        return accessToken;
-    }
+    return accessToken;
+  };
 
-    return refresh;
-}
+  return refresh;
+};
 
 export default useRefreshToken;

@@ -79,6 +79,7 @@ const MatchForm = ({ isOpen, handleClose, callbackFunction }) => {
   const [stadiumList, setStadiumList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const matchController = MatchController();
+  const stadiumAPI = Stadium();
   // create refs for the inputs
   const date = useRef(null);
   const time = useRef(null);
@@ -88,7 +89,7 @@ const MatchForm = ({ isOpen, handleClose, callbackFunction }) => {
   const secondLineman = useRef(null);
 
   const getStadiumList = async () => {
-    const stadiumsList = await new Stadium().getStadiums();
+    const stadiumsList = await stadiumAPI.getStadiums();
     setStadiumList(stadiumsList);
   };
 

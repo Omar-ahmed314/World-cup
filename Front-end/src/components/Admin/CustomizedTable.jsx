@@ -84,7 +84,7 @@ export function MembersTable() {
         isOpen={isConfirmOpen}
         handleClose={handleConfirmClose}
         confirmFunction={deleteUser}
-        params={currentUser.userID}
+        params={currentUser?.userID}
         text={`Are you sure you want to delete ${currentUser?.userName}`}
       />
       <TableContainer component={Paper}>
@@ -177,7 +177,7 @@ export function WaitingTable() {
         isOpen={isConfirmOpen}
         handleClose={handleConfirmClose}
         confirmFunction={userApprove}
-        params={currentUser.userID}
+        params={currentUser?.userID}
         text={`Are you sure you want to approve ${currentUser?.userName}`}
       />
       <TableContainer component={Paper}>

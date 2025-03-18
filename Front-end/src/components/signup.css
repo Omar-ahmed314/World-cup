@@ -1,7 +1,7 @@
 .signup_page {
   height: 100%;
   width: 100%;
-  font-family: sans-serif, Verdana, Geneva, Tahoma ;
+  font-family: sans-serif, Verdana, Geneva, Tahoma;
 }
 
 .signup_page .signup_container {
@@ -11,14 +11,19 @@
   display: flex;
 }
 
-.signup_page .signup_container .caroselContainer{
-  flex-grow: 2;
+.signup_page .signup_container .carosel-container {
+  background-image: url('../images/fig1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: aqua; */
+  height: 100%;
+  flex-grow: 1;
 }
 
 .signup_page .signup_container .authFormContainer {
   overflow-y: scroll;
   /* background-color: azure; */
-  flex-grow: 1;
+  width: 500px;
   padding: 2%;
 }
 
@@ -40,21 +45,22 @@
 }
 
 .signup_page .signup_container .authFormContainer .authForm {
- display: flex;
- flex-direction: column;
- /* background-color: antiquewhite; */
- /* justify-content: space-between; */
+  display: flex;
+  flex-direction: column;
+  /* background-color: antiquewhite; */
+  /* justify-content: space-between; */
 }
 
 /* .signup_page .signup_container .authFormContainer .inputErrorMsg FontAwesomeIcon {
   margin: 1%;
 } */
 
-.signup_page .signup_container .authFormContainer h1, h4{
+.signup_page .signup_container .authFormContainer h1,
+h4 {
   font-weight: bolder;
 }
 
-.signup_page .signup_container .authFormContainer .authForm > div{
+.signup_page .signup_container .authFormContainer .authForm > div {
   /* background-color: aqua; */
   /* text-align: center; */
   display: flex;
@@ -69,14 +75,15 @@
   display: none;
 }
 
-.signup_page .signup_container .authFormContainer label{
+.signup_page .signup_container .authFormContainer label {
   font-weight: bolder;
   font-size: smaller;
   color: gray;
   /* background-color: brown; */
 }
 
-.signup_page .signup_container .authFormContainer input, select{
+.signup_page .signup_container .authFormContainer input,
+select {
   /* margin: 0.5rem 0; */
   margin: 0;
   text-align: left;
@@ -92,7 +99,7 @@
   text-align: center;
 } */
 
-.signup_page .signup_container .authFormContainer button{
+.signup_page .signup_container .authFormContainer button {
   border: none;
   background-color: rgb(113, 27, 89);
   padding: 20px;

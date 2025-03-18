@@ -1,15 +1,19 @@
 import useAuth from './useAuth';
-import axios from '../axios';
 import AdminController from '../Api/admin/AdminController';
+import { useNavigate } from 'react-router-dom';
 
 const useLogout = () => {
-  const { setAuth } = useAuth();
+  const { auth, setAuth } = useAuth();
   const adminAPI = AdminController();
+  const navigate = useNavigate();
 
   const logout = async () => {
     try {
-      setAuth({});
       const response = await adminAPI.logout();
+      const { role } = auth?.role;
+      console.log('We are printing the role: ', role);
+      setAuth({});
+      navigate('/', { replace: true });
     } catch (err) {
       console.log(err);
     }

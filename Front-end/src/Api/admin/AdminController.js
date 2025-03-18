@@ -15,9 +15,9 @@ const AdminController = () => {
     return response;
   };
 
-  const userApprove = async (userId) => {
+  const userApprove = async (userID) => {
     const response = await axiosPrivate.put(`${config.url}/user-approve`, {
-      userId,
+      userID,
     });
     return response;
   };

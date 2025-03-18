@@ -63,7 +63,7 @@ const Sign = () => {
   return (
     <div className="signin_page">
       <div className="signin_container">
-        <section className="caroselContainer">some images will be here</section>
+        <section className="carosel-container"></section>
         <section className="authFormContainer">
           <section className={errMsg ? 'errorMessage' : 'invisible'}>
             {errMsg}

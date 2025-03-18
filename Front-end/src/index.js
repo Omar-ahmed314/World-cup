@@ -12,7 +12,7 @@ import Register from './components/Register';
 import { AuthProvider } from './Hooks/AuthProvider';
 import AutoReload from './components/AutoReload';
 import Dashboard from './components/Admin/Dashboard';
-import ManagerDashboard from './components/Manager/ManagerDashboard';
+import Profile from './Profile/Profile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -23,7 +23,7 @@ root.render(
         <Route element={<AutoReload />}>
           <Route exact path="/" element={<Home />} />
           <Route path="/match/:id" element={<Match />} />
-          {/* <Route path='/buy_ticket/:id' element={<BuyTicket/>}/> */}
+          <Route path="/profile" element={<Profile />} />
           <Route path="/reserved_matches" element={<ReservedMatches />} />
           <Route path="/login" element={<Sign />} />
           <Route path="/signup" element={<Register />} />
